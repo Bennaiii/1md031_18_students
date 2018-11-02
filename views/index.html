@@ -1,9 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>DELI-VERY</title>
+        <title>BurgerHeaven</title>
+        <meta charset="utf-8"/>
     </head>
     <body>
-        <h1>Hello World!!!</h1>
+        <main>
+            <h1>Welcome to BurgerHeaven Online</h1>
+        </main>
+        <section>
+            <h3>Select Burger</h3>
+            <p>This is where you execute burger selection</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Super Burger</th>
+                        <th>Standard Burger</th>
+                        <th>Kids Burger</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="https://s.yimg.com/ny/api/res/1.2/fdcPd00QwQu9R21fBSNycA--/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9Mzg0O2g9NTYw/http://media.zenfs.com/en/homerun/feed_manager_auto_publish_494/646369acf159a9fc0a78ae1f60f59681" alt="Span" title="Another in-line element" width="200" height="200"></td>
+                        <td><img src="http://smokeybones.com/wp-content/uploads/2015/11/loaded-bbq-burger.jpg" alt="Span" title="Another in-line element" width="200" height="200"></td>
+                        <td><img src="https://www.peta.org/wp-content/uploads/2014/05/Fancy-Veggie-Burger.jpg" alt="Span" title="Another in-line element" width="200" height="200"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>>9000 kCal</li>
+                                <li>contains meat</li>
+                                <li>contains cheese</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>842 kCal</li>
+                                <li>seasam bread</li>
+                                <li>ecological tomoatoes</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>333 kCal</li>
+                                <li>without meat</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <h3>Customer information</h3>
+            <p>This is where you provide necessary information</p>
+
+            <h4>Delivery information:</h4>
+            <p>This is where you execute burger selection</p>
+            <form>
+                <p>
+                    <label for="fullname">Full name</label><br>
+                    <input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name">
+                </p>
+                <p>
+                    <label for="email">E-mail</label><br>
+                    <input type="text" id="email" name="em" required="required" placeholder="E-mal address">
+                </p>
+                <p>
+                    <label for="street">Street</label><br>
+                    <input type="text" id="street" name="st" required="required" placeholder="Street name">
+                </p>
+                <p>
+                    <label for="house">House</label><br>
+                    <input type="number" id="house" name="ho" min="1" required="required" placeholder="House number">
+                </p>
+
+                <p>
+                    <label for="recipient">Payment options</label><br>
+                    <select id="recipient" name="rcp">
+                        <option>Paypal</option>
+                        <option>Credit card</option>
+                        <option>Swish</option>
+                    </select>
+                </p><br>
+                
+                <label for="non">Gender</label><br>
+                <input type="radio" id="non" name="rb_gender" checked="checked">
+                <label for="non">do not wish to provide</label><br>
+                <input type="radio" id="female" name="rb_gender">
+                <label for="female">Female</label><br>
+                <input type="radio" id="male" name="rb_gender">
+                <label for="male">Male</label><br>
+
+            </form>
+        </section>
+        <br>
+        <button type="submit"><img src="http://www.clker.com/cliparts/R/J/H/8/D/q/submit-button-hi.png" width="20">Submit Order</button>
+
+        <hr>
+        <footer>
+            <p> &copy; 2018 BurgerHimmel Online GmbH</p>
+        </footer>
     </body>
 </html>
