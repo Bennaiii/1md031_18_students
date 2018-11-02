@@ -1,0 +1,86 @@
+/*CSS file for BurgerHeaven Website*/
+body {
+    font-family: arial, sans-serif;
+    font-size: 1.2em;
+}
+
+/*main {   
+    margin: 1.2em 1.2em;
+}*/
+
+section {
+    margin: 1.2em 1.2em;
+    border-style: dashed;    
+    padding: 1.2em 1.2em;
+}
+
+table {
+    width: 60%;
+    margin: 0 auto;
+    border-style: dashed;
+    border-color: white;
+    border-radius: 1.2em;
+}
+
+h1 {
+    position: absolute;
+    text-align: center;
+    color: red;
+    margin: 2em 0px;
+    width: 100%
+}
+
+button {
+    margin: 2.4em 1.2em;
+}
+
+button:hover {
+    background-color: green;
+    cursor: pointer;
+}
+
+.burgers {
+    display: grid;
+    width: 50%;
+    grid-gap: 3em;
+    border-style: dotted;
+    border-radius: 15px;
+    margin: 0 auto;
+    padding: 2em 3em; 
+}
+
+ul {
+    text-align: left;
+}
+
+.burger {
+    grid-row: 1 / span 3;
+    margin: 0 auto;
+}
+
+.tablepic {
+    margin: auto;
+}
+
+.ingridient, .burgername {
+    font-weight: bold;
+}
+
+#top {  
+    margin: 1.2em 1.2em;
+    height: 200px;
+    overflow: hidden;
+    /*background-image: url(http://all4desktop.com/data_images/original/4242023-heaven.jpg);*/
+}
+
+#toppic {
+    opacity: 0.6;
+    height: auto;
+    width: 100%;
+}
+
+#selection {
+    text-align: center;
+    background-color: black;
+    color: white ;
+}

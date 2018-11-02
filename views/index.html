@@ -3,14 +3,51 @@
     <head>
         <title>BurgerHeaven</title>
         <meta charset="utf-8"/>
+        <!--link rel="stylesheet" type="text/css" href="css/reset.css"-->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
         <main>
-            <h1>Welcome to BurgerHeaven Online</h1>
+            <div id=top>
+                <h1>Welcome to BurgerHeaven Online</h1>
+                <img id="toppic" src="http://all4desktop.com/data_images/original/4242023-heaven.jpg">
+            </div>  
         </main>
-        <section>
+        <section id="selection"> 
             <h3>Select Burger</h3>
             <p>This is where you execute burger selection</p>
+
+            <div class="burgers">
+                <div class="burger A">
+                    <span class="burgername">Super Burger</span><br>
+                    <img class="tablepic" src="https://s.yimg.com/ny/api/res/1.2/fdcPd00QwQu9R21fBSNycA--/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9Mzg0O2g9NTYw/http://media.zenfs.com/en/homerun/feed_manager_auto_publish_494/646369acf159a9fc0a78ae1f60f59681" alt="Span" title="Another in-line element" width="200" height="200">
+                    <ul>
+                        <li>>9000 kCal</li>
+                        <li>contains <span class="ingridient">meat</span></li>
+                        <li>contains <span class="ingridient">cheese</span></li>
+                    </ul>
+                </div>
+                <div class="burger B">
+                    <span class="burgername">Standard Burger</span><br>
+                    <img class="tablepic" src="http://smokeybones.com/wp-content/uploads/2015/11/loaded-bbq-burger.jpg" alt="Span" title="Another in-line element" width="200" height="200"><br>
+                    
+                    <ul>
+                        <li>842 kCal</li>
+                        <li>contains <span class="ingridient">seasam bread</span></li>
+                        <li>contains <span class="ingridient">tomatoes</span></li>
+                    </ul>
+                </div>
+                <div class="burger C">
+                    <span class="burgername">Kids Burger</span><br>
+                    <img class="tablepic" src="https://www.peta.org/wp-content/uploads/2014/05/Fancy-Veggie-Burger.jpg" alt="Span" title="Another in-line element" width="200" height="200">
+                    <ul>
+                        <li>333 kCal</li>
+                        <li>contains <span class="ingridient">no meat</span></li>
+                    </ul>
+                </div>                      
+            </div>
+
+            <!--br><br><br>
 
             <table>
                 <thead>
@@ -22,36 +59,36 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><img src="https://s.yimg.com/ny/api/res/1.2/fdcPd00QwQu9R21fBSNycA--/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9Mzg0O2g9NTYw/http://media.zenfs.com/en/homerun/feed_manager_auto_publish_494/646369acf159a9fc0a78ae1f60f59681" alt="Span" title="Another in-line element" width="200" height="200"></td>
-                        <td><img src="http://smokeybones.com/wp-content/uploads/2015/11/loaded-bbq-burger.jpg" alt="Span" title="Another in-line element" width="200" height="200"></td>
-                        <td><img src="https://www.peta.org/wp-content/uploads/2014/05/Fancy-Veggie-Burger.jpg" alt="Span" title="Another in-line element" width="200" height="200"></td>
+                        <td><img class="tablepic" src="https://s.yimg.com/ny/api/res/1.2/fdcPd00QwQu9R21fBSNycA--/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9Mzg0O2g9NTYw/http://media.zenfs.com/en/homerun/feed_manager_auto_publish_494/646369acf159a9fc0a78ae1f60f59681" alt="Span" title="Another in-line element" width="200" height="200"></td>
+                        <td><img class="tablepic" src="http://smokeybones.com/wp-content/uploads/2015/11/loaded-bbq-burger.jpg" alt="Span" title="Another in-line element" width="200" height="200"></td>
+                        <td><img class="tablepic" src="https://www.peta.org/wp-content/uploads/2014/05/Fancy-Veggie-Burger.jpg" alt="Span" title="Another in-line element" width="200" height="200"></td>
                     </tr>
                     <tr>
                         <td>
                             <ul>
                                 <li>>9000 kCal</li>
-                                <li>contains meat</li>
-                                <li>contains cheese</li>
+                                <li>contains <span class="ingridient">meat</span></li>
+                                <li>contains <span class="ingridient">cheese</span></li>
                             </ul>
                         </td>
                         <td>
                             <ul>
                                 <li>842 kCal</li>
-                                <li>seasam bread</li>
-                                <li>ecological tomoatoes</li>
+                                <li>contains <span class="ingridient">seasam bread</span></li>
+                                <li>contains <span class="ingridient">tomatoes</span></li>
                             </ul>
                         </td>
                         <td>
                             <ul>
                                 <li>333 kCal</li>
-                                <li>without meat</li>
+                                <li>contains <span class="ingridient">no meat</span></li>
                             </ul>
                         </td>
                     </tr>
                 </tbody>
-            </table>
+            </table-->
         </section>
-        <section>
+        <section id="information">
             <h3>Customer information</h3>
             <p>This is where you provide necessary information</p>
 
@@ -64,7 +101,7 @@
                 </p>
                 <p>
                     <label for="email">E-mail</label><br>
-                    <input type="text" id="email" name="em" required="required" placeholder="E-mal address">
+                    <input type="text" id="email" name="em" required="required" placeholder="E-mail address">
                 </p>
                 <p>
                     <label for="street">Street</label><br>
@@ -88,9 +125,9 @@
                 <input type="radio" id="non" name="rb_gender" checked="checked">
                 <label for="non">do not wish to provide</label><br>
                 <input type="radio" id="female" name="rb_gender">
-                <label for="female">Female</label><br>
+                <label for="female">female</label><br>
                 <input type="radio" id="male" name="rb_gender">
-                <label for="male">Male</label><br>
+                <label for="male">male</label><br>
 
             </form>
         </section>
