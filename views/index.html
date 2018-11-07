@@ -5,8 +5,13 @@
         <meta charset="utf-8"/>
         <!--link rel="stylesheet" type="text/css" href="css/reset.css"-->
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="https://vuejs.org/js/vue.js"></script>
+        <script src="js/js_script.js" defer></script>
+        <script type="text/javascript" src="js/menu.js"></script>
+        <script src="js/vue_script.js" defer></script>
     </head>
     <body>
+        <div  id="vue">
         <main>
             <div id=top>
                 <h1>Welcome to BurgerHeaven Online</h1>
@@ -14,10 +19,22 @@
             </div>  
         </main>
         <section id="selection"> 
-            <h3>Select Burger</h3>
-            <p>This is where you execute burger selection</p>
-
+            <h2>{{title}}</h2>
+            <h3>{{headline}}</h3>
             <div class="burgers">
+                <div class="burger" v-for="burger in burgers">
+                    {{burger.name}}
+                    <img class="tablepic" :src=burger.image width=200 height=200>
+                    <ul>
+                        <li>Calories in kCal: {{burger.kcalories}}</li>
+                        <li>Contains Gluten: <a v-if="burger.gluten==true"><b>{{burger.gluten}}</b></a>  <a v-if="burger.gluten==false">{{burger.gluten}}</a></li>
+                        <li>Contains Lactose: <a v-if="burger.lactose==true"><b>{{burger.lactose}}</b></a>  <a v-if="burger.lactose==false">{{burger.lactose}}</a></li>
+                    </ul>
+                    <input type="checkbox" check="unchecked" :value="burger.name">Select {{burger.name}}
+                </div>
+            </div>
+            <p>This is where you execute burger selection</p>
+            <!--div class="burgers">
                 <div class="burger A">
                     <span class="burgername">Super Burger</span><br>
                     <img class="tablepic" src="https://s.yimg.com/ny/api/res/1.2/fdcPd00QwQu9R21fBSNycA--/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9Mzg0O2g9NTYw/http://media.zenfs.com/en/homerun/feed_manager_auto_publish_494/646369acf159a9fc0a78ae1f60f59681" alt="Span" title="Another in-line element" width="200" height="200">
@@ -45,7 +62,7 @@
                         <li>contains <span class="ingridient">no meat</span></li>
                     </ul>
                 </div>                      
-            </div>
+            </div-->
 
             <!--br><br><br>
 
@@ -94,49 +111,50 @@
 
             <h4>Delivery information:</h4>
             <p>This is where you execute burger selection</p>
-            <form>
+            <form id="order">
                 <p>
                     <label for="fullname">Full name</label><br>
-                    <input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name">
+                    <input type="text" v-model="fullname" id="fullname" name="fn" required="required" placeholder="First- and Last name">
                 </p>
                 <p>
                     <label for="email">E-mail</label><br>
-                    <input type="text" id="email" name="em" required="required" placeholder="E-mail address">
+                    <input type="text" v-model="email" id="email" name="em" required="required" placeholder="E-mail address">
                 </p>
                 <p>
                     <label for="street">Street</label><br>
-                    <input type="text" id="street" name="st" required="required" placeholder="Street name">
+                    <input type="text" v-model="street" id="street" name="st" required="required" placeholder="Street name">
                 </p>
                 <p>
                     <label for="house">House</label><br>
-                    <input type="number" id="house" name="ho" min="1" required="required" placeholder="House number">
+                    <input type="number" v-model="house" id="house" name="ho" min="1" required="required" placeholder="House number">
                 </p>
 
                 <p>
                     <label for="recipient">Payment options</label><br>
-                    <select id="recipient" name="rcp">
+                    <select id="recipient" v-model="recipient" name="rcp">
                         <option>Paypal</option>
-                        <option>Credit card</option>
+                        <option selected>Credit card</option>
                         <option>Swish</option>
                     </select>
                 </p><br>
                 
-                <label for="non">Gender</label><br>
-                <input type="radio" id="non" name="rb_gender" checked="checked">
+                <label for="non" id="gender">Gender</label><br>
+                <input type="radio" id="non" name="rb_gender" checked="checked" value="not specified">
                 <label for="non">do not wish to provide</label><br>
-                <input type="radio" id="female" name="rb_gender">
+                <input type="radio" id="female" name="rb_gender" value="female">
                 <label for="female">female</label><br>
-                <input type="radio" id="male" name="rb_gender">
+                <input type="radio" id="male" name="rb_gender" value="male">
                 <label for="male">male</label><br>
 
             </form>
         </section>
         <br>
-        <button type="submit"><img src="http://www.clker.com/cliparts/R/J/H/8/D/q/submit-button-hi.png" width="20">Submit Order</button>
-
+        <button id="orderBtn" type="submit" v-on:click="submitOrder"><img src="http://www.clker.com/cliparts/R/J/H/8/D/q/submit-button-hi.png" width="20">Submit Order</button>
+        <p v-for="info in givenInformation">{{info}}</p>
         <hr>
         <footer>
             <p> &copy; 2018 BurgerHimmel Online GmbH</p>
         </footer>
+    </div>
     </body>
 </html>

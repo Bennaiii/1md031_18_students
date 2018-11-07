@@ -35,13 +35,13 @@ button {
 }
 
 button:hover {
-    background-color: green;
+    background-color: rgb(57, 63, 57);
     cursor: pointer;
 }
 
 .burgers {
     display: grid;
-    width: 50%;
+    width: 80%;
     grid-gap: 3em;
     border-style: dotted;
     border-radius: 15px;
