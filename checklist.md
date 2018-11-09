@@ -63,17 +63,17 @@ Create a vue_script.js file which contains:
 
 ## 05 Messaging
 
-- [ ] Exchange the field for the customer's address with the interactive map
-- [ ] Location information from the map should be send to the dispatcher view when pressing the "order" button
-- [ ] In the dispatcher view, you should see the following for every order:
-    - [ ] A location on the map
-    - [ ] The order information
-    - [ ] The customer information
+- [X] Exchange the field for the customer's address with the interactive map
+- [X] Location information from the map should be send to the dispatcher view when pressing the "order" button
+- [X] In the dispatcher view, you should see the following for every order:
+    - [X] A location on the map
+    - [X] The order information
+    - [X] The customer information
     
 ## Optional
 - [ ] Set the orderID on client side so one customer can make multiple orders
 - [ ] Only allow the order to be sent if all necessary information are provided
-- [ ] Display the order(s) on the customer page as well
+- [X] Display the order(s) on the customer page as well
 - [ ] Allow the dispatcher to handle orders by providing buttons next to every order that can switch the order status to "in preparation" and "done"
 - [ ] Display the order status to the customer and update it in the customer view if updated by the dispatcher
 - [ ] Find a better visualization for what orders belong to which location on the map

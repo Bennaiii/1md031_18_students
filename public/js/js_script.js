@@ -1,5 +1,5 @@
 //js_script
-
+/*
 function readCustomerInformationJS(){
     console.log("Order Button clicked!");
     //functionality
@@ -23,7 +23,7 @@ function readCustomerInformationJS(){
 }
 
 
-/*
+
 function MenuItem(nm, img_url, kcal, glut, lact, amount) {
     // The this keyword refers to the object itself
     this.name = nm; 

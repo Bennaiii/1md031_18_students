@@ -3,11 +3,14 @@
     <head>
         <title>BurgerHeaven</title>
         <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--link rel="stylesheet" type="text/css" href="css/reset.css"-->
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" href="css/deli-very.css">    
         <script src="https://vuejs.org/js/vue.js"></script>
-        <script src="js/js_script.js" defer></script>
+        <script src="/socket.io/socket.io.js" defer></script>
         <script type="text/javascript" src="js/menu.js"></script>
+        <script src="js/js_script.js" defer></script>
         <script src="js/vue_script.js" defer></script>
     </head>
     <body>
@@ -30,7 +33,7 @@
                         <li>Contains Gluten: <a v-if="burger.gluten==true"><b>{{burger.gluten}}</b></a>  <a v-if="burger.gluten==false">{{burger.gluten}}</a></li>
                         <li>Contains Lactose: <a v-if="burger.lactose==true"><b>{{burger.lactose}}</b></a>  <a v-if="burger.lactose==false">{{burger.lactose}}</a></li>
                     </ul>
-                    <input type="checkbox" check="unchecked" :value="burger.name">Select {{burger.name}}
+                    <input type="checkbox" v-model="selectedburgers" check="unchecked" :value="burger.name">Select {{burger.name}}
                 </div>
             </div>
             <p>This is where you execute burger selection</p>
@@ -111,45 +114,56 @@
 
             <h4>Delivery information:</h4>
             <p>This is where you execute burger selection</p>
-            <form id="order">
+            <form id="order" onsubmit="return false">
                 <p>
                     <label for="fullname">Full name</label><br>
-                    <input type="text" v-model="fullname" id="fullname" name="fn" required="required" placeholder="First- and Last name">
+                    <input type="text" v-model="fullname" id="fullname" name="fn" required placeholder="First- and Last name">
                 </p>
                 <p>
                     <label for="email">E-mail</label><br>
-                    <input type="text" v-model="email" id="email" name="em" required="required" placeholder="E-mail address">
+                    <input type="email" v-model="email" id="email" name="em" required placeholder="E-mail address">
                 </p>
-                <p>
+                <!--p>
                     <label for="street">Street</label><br>
-                    <input type="text" v-model="street" id="street" name="st" required="required" placeholder="Street name">
+                    <input type="text" v-model="street" id="street" name="st" required placeholder="Street name">
                 </p>
                 <p>
                     <label for="house">House</label><br>
-                    <input type="number" v-model="house" id="house" name="ho" min="1" required="required" placeholder="House number">
-                </p>
+                    <input type="number" v-model="house" id="house" name="ho" min="1" required placeholder="House number">
+                </p-->
 
                 <p>
                     <label for="recipient">Payment options</label><br>
-                    <select id="recipient" v-model="recipient" name="rcp">
+                    <select id="recipient" v-model="recipient" name="rcp" required>
                         <option>Paypal</option>
-                        <option selected>Credit card</option>
+                        <option>Credit card</option>
                         <option>Swish</option>
                     </select>
                 </p><br>
                 
                 <label for="non" id="gender">Gender</label><br>
-                <input type="radio" id="non" name="rb_gender" checked="checked" value="not specified">
+                <input type="radio" id="non" name="rb_gender" required v-model="gender" value="not specified">
                 <label for="non">do not wish to provide</label><br>
-                <input type="radio" id="female" name="rb_gender" value="female">
+                <input type="radio" id="female" name="rb_gender" v-model="gender" required value="female">
                 <label for="female">female</label><br>
-                <input type="radio" id="male" name="rb_gender" value="male">
+                <input type="radio" id="male" name="rb_gender" v-model="gender" required value="male">
                 <label for="male">male</label><br>
+                <!--{{ displayInfo() }}-->
+                <br>
+                <b> Click in the map! </b>
+                <a href="/dispatcher" target="_blank">Open dispatcher in new window</a>.
+                <div class="view-box">
+                    <div id="dots" v-on:click="displayOrder">
+                        <div v-bind:style="{ left: position.x + 'px', top: position.y + 'px'}">
+                        {{orderT}}
+                        </div>
+                    </div>
+                </div>
 
+                <button id="orderBtn" type="submit" v-on:click="submitOrder"><img src="http://www.clker.com/cliparts/R/J/H/8/D/q/submit-button-hi.png" width="20">Submit Order</button>
             </form>
         </section>
         <br>
-        <button id="orderBtn" type="submit" v-on:click="submitOrder"><img src="http://www.clker.com/cliparts/R/J/H/8/D/q/submit-button-hi.png" width="20">Submit Order</button>
         <p v-for="info in givenInformation">{{info}}</p>
         <hr>
         <footer>
