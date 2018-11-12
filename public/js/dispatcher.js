@@ -5,7 +5,7 @@
 var socket = io();
 
 var vm = new Vue({
-  el: '#orders',
+  el: '#dispatcherVM',
   data: {
     orders: []
   },
@@ -13,10 +13,12 @@ var vm = new Vue({
     socket.on('initialize', function (data) {
       this.orders = [];
       (this.orders).push(data.orders);
+      console.log("INITIALIZE");
     }.bind(this));
 
     socket.on('currentQueue', function (data) {
       (this.orders).push(data.orders);
+      console.log("QUEUING");
     }.bind(this));
   }
 });

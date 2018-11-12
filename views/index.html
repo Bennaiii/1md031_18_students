@@ -109,11 +109,8 @@
             </table-->
         </section>
         <section id="information">
-            <h3>Customer information</h3>
+            <h3>Delivery information</h3>
             <p>This is where you provide necessary information</p>
-
-            <h4>Delivery information:</h4>
-            <p>This is where you execute burger selection</p>
             <form id="order" onsubmit="return false">
                 <p>
                     <label for="fullname">Full name</label><br>
@@ -131,7 +128,6 @@
                     <label for="house">House</label><br>
                     <input type="number" v-model="house" id="house" name="ho" min="1" required placeholder="House number">
                 </p-->
-
                 <p>
                     <label for="recipient">Payment options</label><br>
                     <select id="recipient" v-model="recipient" name="rcp" required>
@@ -139,17 +135,17 @@
                         <option>Credit card</option>
                         <option>Swish</option>
                     </select>
-                </p><br>
-                
-                <label for="non" id="gender">Gender</label><br>
-                <input type="radio" id="non" name="rb_gender" required v-model="gender" value="not specified">
-                <label for="non">do not wish to provide</label><br>
-                <input type="radio" id="female" name="rb_gender" v-model="gender" required value="female">
-                <label for="female">female</label><br>
-                <input type="radio" id="male" name="rb_gender" v-model="gender" required value="male">
-                <label for="male">male</label><br>
-                <!--{{ displayInfo() }}-->
-                <br>
+                </p>
+                <p>
+                    <label for="non" id="gender">Gender</label><br>
+                    <input type="radio" id="non" name="rb_gender" required v-model="gender" value="not specified">
+                    <label for="non">do not wish to provide</label><br>
+                    <input type="radio" id="female" name="rb_gender" v-model="gender" required value="female">
+                    <label for="female">female</label><br>
+                    <input type="radio" id="male" name="rb_gender" v-model="gender" required value="male">
+                    <label for="male">male</label><br>
+                </p>
+
                 <b> Click in the map! </b>
                 <a href="/dispatcher" target="_blank">Open dispatcher in new window</a>.
                 <div class="view-box">
@@ -164,7 +160,26 @@
             </form>
         </section>
         <br>
-        <p v-for="info in givenInformation">{{info}}</p>
+        <hr>
+        <h4 v-if="orders.length > 0">Order confirmation: </h4>
+        <div class="orderConfirmation" v-for="order in orders">
+            <b>Order number: #{{order.number}}</b>
+            <p>Position: {{order.position.x}}, {{order.position.y}}</p>
+            <b>Selected items:</b>
+            <ul> 
+                <div v-for="item in order.items">
+                    <li class=item>{{item}}</li>
+                </div>
+            </ul>
+            <b>Personal information:</b>  
+            <ul>
+                    <li class="personalInformation">Name: {{order.info[0]}}</li>
+                    <li class="personalInformation">Email: {{order.info[1]}}</li>
+                    <li class="personalInformation">Payment: {{order.info[2]}}</li>
+                    <li class="personalInformation">Gender: {{order.info[3]}}</li>
+            </ul>  
+            <hr>
+        </div>
         <hr>
         <footer>
             <p> &copy; 2018 BurgerHimmel Online GmbH</p>

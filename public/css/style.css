@@ -84,6 +84,15 @@ ul {
     background-color: black;
     color: white ;
 }
+
+.orderConfirmation {   
+    margin: 0em 2em;
+}
+
+.personalInformation {
+    font-style: italic;
+}
+
 /******************************************/
 
 .view-box {

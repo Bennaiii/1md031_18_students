@@ -3,6 +3,19 @@ body {
 	padding: 0;
 }
 
+h4 {
+	text-align: center;
+	text-decoration: underline;
+}
+
+.info {
+	margin: 0em 2em;
+}
+
+.personalInformation {
+    font-style: italic;
+}
+
 .view-box {
 	width: 90%;
 	height: 50vh;

@@ -10,25 +10,39 @@
   <script src="js/dispatcher.js" defer></script>
 </head>
 <body>
-  <div id="orders">
+  <div id="dispatcherVM">
     <div id="orderList">
-      <div v-for="(order, key) in orders">        
+      <!--div v-for="order in orders">        
         <div v-for="o in order" id="orderlist">
             <b>#{{o[0]}}:</b> {{o[2].join(", ")}}<br>
             <i>{{o[3].join(", ")}}</i><br>
             Position: {{o[1].x}}, {{o[1].y}}<br>
             <hr>
         </div>
+      </div-->
+      <h4 v-if="orders.length > 0">Order Confirmations</h4>
+      <div class="orderConfirmation" v-for="ordersList in orders">
+        <div v-for="order in ordersList">
+          <b>Order #{{order.number}}: </b> 
+          <div class="info"> 
+                  <a class="items">{{order.items.join(", ")}}</a><br>
+                  <a class="personalInformation">{{order.info.join(", ")}}</a>
+          </div>  
+          <hr>
+        </div>
       </div>
     </div>
     <div id="dots">
-        <div v-for="(order, key) in orders" >
-            <div v-for="o in order"
-                v-bind:style="{ left: o[1].x + 'px', top: o[1].y + 'px'}">
-              {{ o[0] }}
+        <div v-for="ordersList in orders">
+        <div v-for="order in ordersList" 
+            v-bind:style="{ left: order.position.x + 'px', top: order.position.y + 'px'}">
+              {{ order.number }}
             </div>
+          </div>
         </div>
     </div>
+
+    
   </div>
 </body>
 </html>
